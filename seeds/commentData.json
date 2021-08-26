@@ -1,33 +1,33 @@
 [
     {
-        "body": "This the first comment for article one",
+        "comment_body": "This the first comment for article one",
         "article_id": 1
       },
       {
-        "body": "This the second comment for article one",
+        "comment_body": "This the second comment for article one",
         "article_id": 1
       },
       {
-        "body": "This is the only comment for article two",
+        "comment_body": "This is the only comment for article two",
         "article_id": 2
       },
       {
-        "body": "This the first comment for article three",
+        "comment_body": "This the first comment for article three",
         "article_id": 3
       },
       {
-        "body": "This the second comment for article three",
+        "comment_body": "This the second comment for article three",
         "article_id": 3
       },
       {
-        "body": "This is the only comment for article four",
+        "comment_body": "This is the only comment for article four",
         "article_id": 4
       },{
-        "body": "This the first comment for article five",
+        "comment_body": "This the first comment for article five",
         "article_id": 5
       },
       {
-        "body": "This the second comment for article five",
+        "comment_body": "This the second comment for article five",
         "article_id": 5
       }      
 ]

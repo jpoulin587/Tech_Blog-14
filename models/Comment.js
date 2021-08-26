@@ -11,7 +11,7 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    body: {
+    comment_body: {
       type: DataTypes.TEXT,
     },
     user_id: {
@@ -22,12 +22,12 @@ Comment.init(
       },
     },
     article_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'article',
-          key: 'id',
-        },
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'article',
+        key: 'id',
       },
+    },
   },
   {
     sequelize,

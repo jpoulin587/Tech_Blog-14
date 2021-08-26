@@ -1,0 +1,11 @@
+<div class="text-center">
+  <h2>{{title}}</h2>
+  
+  <p>{{body}}</p>
+  <p>Created on {{format_date date_created}}</p>
+  <p>
+ {{#each comment as |comment| }}
+ <a href="/comment/{{comment.id}}">{{comment.comment_body}}</a>
+  </p>
+  
+</div>
