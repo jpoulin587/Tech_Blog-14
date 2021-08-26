@@ -3,14 +3,33 @@ const { Article, Comment, User } = require('../models');
 // const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
-    console.log('connected');
     try {
-        const data = await Article.findAll();
-        res.json(data);
+        const articleData = await Article.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['email'],
+                },
+            ],
+        });
+        const articles = articleData.map((article) => article.get(
+            {plain: true}));
+
+        res.render('homepage',{
+            articles,
+            // logged_in: req.session.logged_in
+        });
+
+        // res.json(articleData);
     } catch(err) {
         res.json(err);
     }
 });
+
+
+
+
+
 
 router.get('/login', async (req, res) => {
     console.log('connected');
