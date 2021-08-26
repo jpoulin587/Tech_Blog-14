@@ -10,5 +10,27 @@ User.hasMany(Article, {
 Article.belongsTo(User, {
   foreignKey: 'user_id'
 });
+//--------------------------------------------
+
+User.hasMany(Comment, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
+
+Comment.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+//------------------------------------------
+
+Comment.hasMany(Article, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
+
+Article.belongsTo(Comment, {
+  foreignKey: 'user_id'
+});
+
+
 
 module.exports = { User, Article, Comment };
