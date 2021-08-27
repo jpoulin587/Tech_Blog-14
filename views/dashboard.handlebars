@@ -24,13 +24,13 @@
   </div>
 
  {{#if articles.length}}
-  <div class="col-md-6 project-list">
+  <div class="col-md-6 article-list">
     <h3>Posted Articles:</h3>
 
     {{#each articles as |article|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{article.id}}">{{article.title}}</a></h4>
+        <h4><a href="/article/{{article.id}}">{{article.title}}</a></h4>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{article.id}}">DELETE</button>
@@ -40,10 +40,6 @@
   </div>
   {{/if}}
 </div>
-
-
-
-
 
 
 
