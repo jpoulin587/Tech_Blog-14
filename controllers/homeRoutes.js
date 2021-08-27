@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Article, Comment, User } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -31,7 +31,7 @@ router.get('/article/:id', async (req, res) => {
     const articleData = await Article.findOne({where: {id: req.params.id},
       include: [{model: Comment }]
     });
-    console.log(articleData);
+    // console.log(articleData);
     const article = articleData.get({ plain: true });
 
     res.render('article', {
@@ -39,8 +39,27 @@ router.get('/article/:id', async (req, res) => {
       // logged_in: req.session.logged_in
 
     });
-    //res.json(articleData)
+    // res.json(articleData)
   } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/dashboard', withAuth, async (req,res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: {exclude: ['password']},
+      include: [{model: Article}],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('dashboard', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.render('dashboard');
     res.status(500).json(err);
   }
 });
@@ -49,9 +68,8 @@ router.get('/article/:id', async (req, res) => {
 
 
 
-
 router.get('/login', async (req, res) => {
-  console.log('connected');
+  // console.log('connected');
   try {
     res.render('login');
   }catch (err) {
