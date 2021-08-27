@@ -22,13 +22,13 @@ Comment.belongsTo(User, {
 });
 //------------------------------------------
 
-Comment.hasMany(Article, {
-  foreignKey: 'user_id',
+Comment.belongsTo(Article, {
+  foreignKey: 'article_id',
   onDelete: 'CASCADE'
 });
 
-Article.belongsTo(Comment, {
-  foreignKey: 'user_id'
+Article.hasMany(Comment, {
+  foreignKey: 'article_id'
 });
 
 

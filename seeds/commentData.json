@@ -8,8 +8,8 @@
         "article_id": 1
       },
       {
-        "comment_body": "This is the only comment for article two",
-        "article_id": 2
+        "comment_body": "This is the third comment for article one",
+        "article_id": 1
       },
       {
         "comment_body": "This the first comment for article three",
