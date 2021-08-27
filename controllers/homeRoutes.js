@@ -47,7 +47,7 @@ router.get('/article/:id', async (req, res) => {
 
 router.get('/dashboard', withAuth, async (req,res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id, {
+    const userData = await User.findOne({where: {id: req.session.user_id,},
       attributes: {exclude: ['password']},
       include: [{model: Article}],
     });
@@ -58,8 +58,10 @@ router.get('/dashboard', withAuth, async (req,res) => {
       ...user,
       logged_in: true
     });
+
+   // res.json(userData);
   } catch (err) {
-    res.render('dashboard');
+    // res.render('dashboard');
     res.status(500).json(err);
   }
 });
