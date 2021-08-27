@@ -23,11 +23,11 @@
     </form>
   </div>
 
- {{#if article.length}}
+ {{#if articles.length}}
   <div class="col-md-6 project-list">
     <h3>Posted Articles:</h3>
 
-    {{#each Articles as |article|}}
+    {{#each articles as |article|}}
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/project/{{article.id}}">{{article.title}}</a></h4>

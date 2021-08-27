@@ -59,7 +59,7 @@ router.get('/dashboard', withAuth, async (req,res) => {
       logged_in: true
     });
 
-   // res.json(userData);
+    // res.json(userData);
   } catch (err) {
     // res.render('dashboard');
     res.status(500).json(err);
