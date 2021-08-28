@@ -33,10 +33,11 @@ router.get('/article/:id', async (req, res) => {
     });
     // console.log(articleData);
     const article = articleData.get({ plain: true });
+    
 
     res.render('article', {
       ...article,
-      // logged_in: req.session.logged_in
+      logged_in: req.session.logged_in
 
     });
     // res.json(articleData)
@@ -53,7 +54,7 @@ router.get('/dashboard', withAuth, async (req,res) => {
     });
 
     const user = userData.get({ plain: true });
-
+    console.log(userData);
     res.render('dashboard', {
       ...user,
       logged_in: true

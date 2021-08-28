@@ -16,8 +16,8 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       // If successful, redirect the browser to the profile page
       console.log('password match');
-      // TODO uncomment this link below
-      // document.location.replace('/profile');
+      
+       document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
     }
