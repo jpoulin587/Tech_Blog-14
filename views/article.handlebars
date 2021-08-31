@@ -1,5 +1,5 @@
 <div class="text-center">
-  <h2>{{title}}</h2>
+  <h2>Article: {{id}} {{title}}</h2>
   <p>article.handlebars</p>
   <div class="container p-3 my-3 bg-primary text-white">
   <p>{{body}}</p>
@@ -12,6 +12,9 @@
  {{#each comments as |comment| }}
 <div class="container p-3 my-3 border">
  <a>{{comment_body}}</a>
+   <p>Comment created on {{format_date createdAt}}
+    <br>
+  </p>
   </div>
  
  <br>
