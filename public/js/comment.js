@@ -2,10 +2,11 @@ const newCommentHandler = async (event) => {
   event.preventDefault();
 
   const comment_body = document.querySelector('#comment-body').value.trim();
-  // console.log(comment_body);
+   //Partial solution from tutor.  This shows the route, js and handlebars is working.  
+   let article_id = 1; // Hard coded. needs to be dynamic
 
   if (comment_body) {
-    const response = await fetch('/article/:id', {
+    const response = await fetch(`/api/article/${article_id}`, {
       method: 'POST',
       body: JSON.stringify({comment_body}),
       headers: {
@@ -13,7 +14,7 @@ const newCommentHandler = async (event) => {
       },
     });
     if (response.ok) {
-      document.location.replace('/article');
+      document.location.replace(`/article/${article_id}`);
     } else {
       alert('failed to create comment');
     }
