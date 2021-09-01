@@ -2,6 +2,7 @@ const newCommentHandler = async (event) => {
   event.preventDefault();
 
   const comment_body = document.querySelector('#comment-body').value.trim();
+  // console.log(comment_body);
 
   if (comment_body) {
     const response = await fetch('/article/:id', {
